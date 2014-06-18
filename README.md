@@ -3,7 +3,7 @@ node-trollbridge
 
 A permissions system for Node and Express
 
-##How to use
+## How to use
 include the troll library and setup any of the strategies you want to include.
 
 You can make your own strategy functions or use some of the premade ones
@@ -36,4 +36,19 @@ and then in your template
 {% if has_permission('edit_user') %}
 <a href="/user/edit">Edit User</a>
 {% endif %}
+```
+
+## Creating Strategies
+Strategies will throw an error if they are unable to be authenticated.
+```js
+//sample strategy
+module.exports = function(req, permission) {
+    if (!req.isAuthenticated()) {
+        throw "User is not authenticated";
+    }
+
+    if (typeof req.user === 'undefined' || req.user == null) {
+        throw "Should not be able to login";
+    }
+}
 ```
