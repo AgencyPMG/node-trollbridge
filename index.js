@@ -25,7 +25,7 @@ Troll.prototype.setRedirectUrl = function(redirectUrl) {
  * @param strategies {array} Array of functions to run through
  */
 Troll.prototype.addStrategies = function(strategies) {
-    if(typeof strategies !== 'array') {
+    if (!(strategies instaneof Array)) {
         strategies = [strategies];
     }
     this.strategies = this.strategies.concat(strategies);
@@ -54,7 +54,7 @@ Troll.prototype.shallNotPass = function(permission)
 Troll.prototype.userHasPermission = function(req, permission, cb)
 {
     try {
-        for(var index in this.strategies) {
+        for (var index in this.strategies) {
             this.strategies[index](req, permission);
         }
     } catch(e) {
