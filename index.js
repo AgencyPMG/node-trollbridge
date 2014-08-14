@@ -25,7 +25,7 @@ Troll.prototype.setRedirectUrl = function(redirectUrl) {
  * @param strategies {array} Array of functions to run through
  */
 Troll.prototype.addStrategies = function(strategies) {
-    if (!(strategies instaneof Array)) {
+    if (!(strategies instanceof Array)) {
         strategies = [strategies];
     }
     this.strategies = this.strategies.concat(strategies);
